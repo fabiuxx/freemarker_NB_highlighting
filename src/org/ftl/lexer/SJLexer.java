@@ -4,7 +4,6 @@
  */
 package org.ftl.lexer;
 
-import javax.swing.JOptionPane;
 import org.ftl.FMParserTokenManager;
 import org.ftl.SimpleCharStream;
 import org.ftl.Token;
@@ -25,14 +24,14 @@ class SJLexer implements Lexer<SJTokenId> {
     @Override
     public org.netbeans.api.lexer.Token<SJTokenId> nextToken() {
         Token token = javaParserTokenManager.getNextToken();
-        System.out.println("TOKEN:              "+token.toString() + "/" + token.kind);
+        System.out.println("TOKEN:              " + token.toString() + "/" + token.kind);
         if (info.input().readLength() < 1) {
             return null;
         }
         return info.tokenFactory().createToken(SJLanguageHierarchy.getToken(token.kind));
     }
 
-    @Override   
+    @Override
     public Object state() {
         return null;
     }

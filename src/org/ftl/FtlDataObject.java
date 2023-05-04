@@ -23,65 +23,56 @@ import org.openide.util.NbBundle.Messages;
     "LBL_Ftl_LOADER=Files of Ftl"
 })
 @MIMEResolver.ExtensionRegistration(
-    displayName = "#LBL_Ftl_LOADER",
-mimeType = "text/x-ftl",
-extension = {"ftl"})
+        displayName = "#LBL_Ftl_LOADER",
+        mimeType = "text/x-ftl",
+        extension = {"ftl"})
 @DataObject.Registration(
-    mimeType = "text/x-ftl",
-iconBase = "org/ftl/dot.png",
-displayName = "#LBL_Ftl_LOADER",
-position = 300)
+        mimeType = "text/x-ftl",
+        iconBase = "org/ftl/ftlfile.png",
+        displayName = "#LBL_Ftl_LOADER",
+        position = 300)
 @ActionReferences({
     @ActionReference(
-        path = "Loaders/text/x-ftl/Actions",
-    id =
-    @ActionID(category = "System", id = "org.openide.actions.OpenAction"),
-    position = 100,
-    separatorAfter = 200),
+            path = "Loaders/text/x-ftl/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.OpenAction"),
+            position = 100,
+            separatorAfter = 200),
     @ActionReference(
-        path = "Loaders/text/x-ftl/Actions",
-    id =
-    @ActionID(category = "Edit", id = "org.openide.actions.CutAction"),
-    position = 300),
+            path = "Loaders/text/x-ftl/Actions",
+            id = @ActionID(category = "Edit", id = "org.openide.actions.CutAction"),
+            position = 300),
     @ActionReference(
-        path = "Loaders/text/x-ftl/Actions",
-    id =
-    @ActionID(category = "Edit", id = "org.openide.actions.CopyAction"),
-    position = 400,
-    separatorAfter = 500),
+            path = "Loaders/text/x-ftl/Actions",
+            id = @ActionID(category = "Edit", id = "org.openide.actions.CopyAction"),
+            position = 400,
+            separatorAfter = 500),
     @ActionReference(
-        path = "Loaders/text/x-ftl/Actions",
-    id =
-    @ActionID(category = "Edit", id = "org.openide.actions.DeleteAction"),
-    position = 600),
+            path = "Loaders/text/x-ftl/Actions",
+            id = @ActionID(category = "Edit", id = "org.openide.actions.DeleteAction"),
+            position = 600),
     @ActionReference(
-        path = "Loaders/text/x-ftl/Actions",
-    id =
-    @ActionID(category = "System", id = "org.openide.actions.RenameAction"),
-    position = 700,
-    separatorAfter = 800),
+            path = "Loaders/text/x-ftl/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.RenameAction"),
+            position = 700,
+            separatorAfter = 800),
     @ActionReference(
-        path = "Loaders/text/x-ftl/Actions",
-    id =
-    @ActionID(category = "System", id = "org.openide.actions.SaveAsTemplateAction"),
-    position = 900,
-    separatorAfter = 1000),
+            path = "Loaders/text/x-ftl/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.SaveAsTemplateAction"),
+            position = 900,
+            separatorAfter = 1000),
     @ActionReference(
-        path = "Loaders/text/x-ftl/Actions",
-    id =
-    @ActionID(category = "System", id = "org.openide.actions.FileSystemAction"),
-    position = 1100,
-    separatorAfter = 1200),
+            path = "Loaders/text/x-ftl/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.FileSystemAction"),
+            position = 1100,
+            separatorAfter = 1200),
     @ActionReference(
-        path = "Loaders/text/x-ftl/Actions",
-    id =
-    @ActionID(category = "System", id = "org.openide.actions.ToolsAction"),
-    position = 1300),
+            path = "Loaders/text/x-ftl/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.ToolsAction"),
+            position = 1300),
     @ActionReference(
-        path = "Loaders/text/x-ftl/Actions",
-    id =
-    @ActionID(category = "System", id = "org.openide.actions.PropertiesAction"),
-    position = 1400)
+            path = "Loaders/text/x-ftl/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.PropertiesAction"),
+            position = 1400)
 })
 public class FtlDataObject extends MultiDataObject {
 
@@ -97,8 +88,9 @@ public class FtlDataObject extends MultiDataObject {
     }
 
     @TemplateRegistration(folder = "Other", content = "FtlTemplate.ftl")
+    @SuppressWarnings("rawtypes")
     public static WizardDescriptor.InstantiatingIterator templateIterator() {
         return null;
     }
-    
+
 }

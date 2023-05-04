@@ -15,5 +15,5 @@ public class SJBracesMatcherFactory implements BracesMatcherFactory {
     public BracesMatcher createMatcher(MatcherContext context) {
         return BracesMatcherSupport.defaultMatcher(context, -1, -1);
     }
-    
+
 }

@@ -12,6 +12,7 @@ import org.netbeans.modules.csl.spi.LanguageRegistration;
 public class SJLanguage extends DefaultLanguageConfig {
 
     @Override
+    @SuppressWarnings("rawtypes")
     public Language getLexerLanguage() {
         return SJTokenId.getLanguage();
     }

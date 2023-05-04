@@ -4,8 +4,6 @@
  */
 package org.ftl.lexer;
 
-import java.util.Set;
-import javax.swing.JOptionPane;
 import org.netbeans.api.editor.mimelookup.MimeLookup;
 import org.netbeans.api.html.lexer.HTMLTokenId;
 import org.netbeans.api.lexer.InputAttributes;
@@ -19,6 +17,7 @@ import org.openide.util.lookup.ServiceProvider;
 @ServiceProvider(service = LanguageProvider.class)
 public class HTMLEmbeddingLanguageProvider extends LanguageProvider {
 
+    @SuppressWarnings("rawtypes")
     private Language embeddedLanguage;
 
     @Override
@@ -27,8 +26,9 @@ public class HTMLEmbeddingLanguageProvider extends LanguageProvider {
     }
 
     @Override
-    public LanguageEmbedding<?> findLanguageEmbedding(Token<?> token, 
-        LanguagePath languagePath, InputAttributes inputAttributes) {
+    @SuppressWarnings("unchecked")
+    public LanguageEmbedding<?> findLanguageEmbedding(Token<?> token,
+            LanguagePath languagePath, InputAttributes inputAttributes) {
         initLanguage();
         if (languagePath.mimePath().equals("text/html")) {
             if (token.id().name().equals("TEXT")) {
@@ -44,5 +44,5 @@ public class HTMLEmbeddingLanguageProvider extends LanguageProvider {
             throw new NullPointerException("Can't find language for embedding");
         }
     }
-    
+
 }

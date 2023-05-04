@@ -7,11 +7,8 @@ package org.ftl.lexer.hyperlink;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
-import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
-import org.ftl.lexer.SJLanguage;
-import org.ftl.lexer.SJLanguageHierarchy;
 import org.ftl.lexer.SJTokenId;
 import org.netbeans.api.editor.mimelookup.MimeRegistration;
 import org.netbeans.api.lexer.Language;
@@ -77,27 +74,26 @@ public class AssignHyperlinkProvider implements HyperlinkProviderExt {
         return od != null ? od.getPrimaryFile() : null;
     }
 
+    @SuppressWarnings({"rawtypes", "unchecked"})
     private int[] getIdentifierSpan(Document doc, int offset) {
-TokenHierarchy<?> th = TokenHierarchy.get(doc);
-TokenSequence htmlTs = th.tokenSequence(Language.find("text/html"));
-if (htmlTs == null || !htmlTs.moveNext() && !htmlTs.movePrevious()) {
-    return null;
-}
-TokenSequence<SJTokenId> ts = htmlTs.embedded();
-if (ts == null) {
-    return null;
-}
-ts.move(offset);
+        TokenHierarchy<?> th = TokenHierarchy.get(doc);
+        TokenSequence htmlTs = th.tokenSequence(Language.find("text/html"));
+        if (htmlTs == null || !htmlTs.moveNext() && !htmlTs.movePrevious()) {
+            return null;
+        }
+        TokenSequence<SJTokenId> ts = htmlTs.embedded();
+        if (ts == null) {
+            return null;
+        }
+        ts.move(offset);
         if (!ts.moveNext() && !ts.movePrevious()) {
             return null;
         }
 
         Token t = ts.token();
-        
-//        JOptionPane.showMessageDialog(null, t.id().name());
 
+//        JOptionPane.showMessageDialog(null, t.id().name());
         if (t.id().name().equals("ID") || t.id().name().equals("PRINTABLE_CHARS")) {
-                                                
 
             int start = ts.offset();
             int end = ts.offset() + t.length();
@@ -113,6 +109,7 @@ ts.move(offset);
         return null;
     }
 
+    @SuppressWarnings("rawtypes")
     private void getCurrentLineNumber(Document doc, Token t) {
         //Get the current line number:
         FileObject fo = getFileObject(doc);
@@ -130,6 +127,7 @@ ts.move(offset);
         }
     }
 
+    @SuppressWarnings("rawtypes")
     private boolean getDeclaration(TokenSequence ts, Token t, int start, int end) {
         for (int i = 0; i < ts.tokenCount(); i++) {
             ts.moveIndex(i);
@@ -148,5 +146,5 @@ ts.move(offset);
         }
         return false;
     }
-    
+
 }

@@ -12,13 +12,13 @@ public class SJLanguageHierarchy extends LanguageHierarchy<SJTokenId> {
     private static Map<Integer, SJTokenId> idToToken;
 
     private static void init() {
-        
-        tokens = FreeMarkerUtils.getTokensList();
-        idToToken = new HashMap<Integer, SJTokenId> ();
-        for (SJTokenId token : tokens)
-            idToToken.put (token.ordinal (), token);
 
-        
+        tokens = FreeMarkerUtils.getTokensList();
+        idToToken = new HashMap<Integer, SJTokenId>();
+        for (SJTokenId token : tokens) {
+            idToToken.put(token.ordinal(), token);
+        }
+
 //        tokens = Arrays.asList(new SJTokenId[]{
 //            
 ////            new SJTokenId("DEFAULT", "keyword", 0),

@@ -1,4 +1,21 @@
+ORIGINAL
+====================
+
 After installing the plugin, create a project or open a project, then go to
 the New File dialog, to the Other category, where you will find a FreeMarker
 template. Syntax coloring is provided, which can be changed in the Options
 window.
+
+AFTER FORK
+====================
+A proper keystore must be placed at nbproject/private. This keystore must contain
+a key-pair for self-signing de plugin.
+
+The keystore file is referenced in nbproject/project.properties under the keystore
+property.
+
+CHANGES
+--------------------
+- Default icon for ftl files replaced (dot.png), now using ftlicon.png.
+- Syntax color scheme for profile "Netbeans" changed (view FontAndColors1.xml, dark themes preferred).
+- Syntax color scheme for profile "CityLights" removed.

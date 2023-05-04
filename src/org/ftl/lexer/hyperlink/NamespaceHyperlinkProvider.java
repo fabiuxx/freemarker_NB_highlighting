@@ -82,6 +82,7 @@ public class NamespaceHyperlinkProvider implements HyperlinkProviderExt {
         return od != null ? od.getPrimaryFile() : null;
     }
 
+    @SuppressWarnings({"rawtypes", "unchecked"})
     private int[] getIdentifierSpan(Document doc, int offset) {
         TokenHierarchy<?> th = TokenHierarchy.get(doc);
         TokenSequence htmlTs = th.tokenSequence(Language.find("text/html"));
@@ -117,6 +118,7 @@ public class NamespaceHyperlinkProvider implements HyperlinkProviderExt {
         return null;
     }
 
+    @SuppressWarnings("rawtypes")
     private boolean getIdBelongingToMatchingAs(TokenSequence ts, Token t, int start, int end) {
         for (int i = 0; i < ts.tokenCount(); i++) {
             ts.moveIndex(i);

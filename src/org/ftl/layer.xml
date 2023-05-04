@@ -21,11 +21,6 @@
                             <file name="org-netbeans-modules-editor-ftl-token-colorings1.xml" url="FontAndColors1.xml"/>
                         </folder>
                     </folder>
-                    <folder name="CityLights">
-                        <folder name="Defaults">
-                            <file name="org-netbeans-modules-editor-ftl-token-colorings2.xml" url="FontAndColors2.xml"/>
-                        </folder>
-                    </folder>
                 </folder>
             </folder>
         </folder>

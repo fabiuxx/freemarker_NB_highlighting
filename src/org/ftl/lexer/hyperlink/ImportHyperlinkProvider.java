@@ -7,7 +7,6 @@ package org.ftl.lexer.hyperlink;
 import java.io.File;
 import java.util.EnumSet;
 import java.util.Set;
-import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import org.ftl.lexer.SJTokenId;
@@ -85,17 +84,18 @@ public class ImportHyperlinkProvider implements HyperlinkProviderExt {
         return od != null ? od.getPrimaryFile() : null;
     }
 
+    @SuppressWarnings({"rawtypes", "unchecked"})
     private int[] getIdentifierSpan(Document doc, int offset) {
-TokenHierarchy<?> th = TokenHierarchy.get(doc);
-TokenSequence htmlTs = th.tokenSequence(Language.find("text/html"));
-if (htmlTs == null || !htmlTs.moveNext() && !htmlTs.movePrevious()) {
-    return null;
-}
-TokenSequence<SJTokenId> ts = htmlTs.embedded();
-if (ts == null) {
-    return null;
-}
-ts.move(offset);
+        TokenHierarchy<?> th = TokenHierarchy.get(doc);
+        TokenSequence htmlTs = th.tokenSequence(Language.find("text/html"));
+        if (htmlTs == null || !htmlTs.moveNext() && !htmlTs.movePrevious()) {
+            return null;
+        }
+        TokenSequence<SJTokenId> ts = htmlTs.embedded();
+        if (ts == null) {
+            return null;
+        }
+        ts.move(offset);
         if (!ts.moveNext() && !ts.movePrevious()) {
             return null;
         }
